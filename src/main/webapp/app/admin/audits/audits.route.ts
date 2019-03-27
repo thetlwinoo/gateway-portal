@@ -12,6 +12,22 @@ export const auditsRoute: Route = {
     },
     data: {
         pageTitle: 'audits.title',
-        defaultSort: 'auditEventDate,desc'
+        defaultSort: 'auditEventDate,desc',
+        breadcrumb: [
+            {
+                label: 'Admin',
+                command: event => {
+                    this.msgs.length = 0;
+                    this.msgs.push({ severity: 'info', summary: event.item.label });
+                }
+            },
+            {
+                label: 'Audits',
+                command: event => {
+                    this.msgs.length = 0;
+                    this.msgs.push({ severity: 'info', summary: event.item.label });
+                }
+            }
+        ]
     }
 };

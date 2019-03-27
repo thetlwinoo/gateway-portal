@@ -1,0 +1,49 @@
+{
+    "portalApp": {
+        "customers": {
+            "home": {
+                "title": "Customers",
+                "createLabel": "Customers အသစ်ထည့်မည်",
+                "createOrEditLabel": "Customers အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း"
+            },
+            "created": "{{ param }} အိုင်ဒီဖြင့် Customers အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+            "updated": "{{ param }} အိုင်ဒီဖြင့် Customers တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+            "deleted": "{{ param }} အိုင်ဒီဖြင့် Customers တစ်ခုအား ဖျက်ပြီးပါပြီ။",
+            "delete": {
+                "question": "Customers {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+            },
+            "detail": {
+                "title": "Customers"
+            },
+            "customerName": "Customer Name",
+            "creditLimit": "Credit Limit",
+            "accountOpenedDate": "Account Opened Date",
+            "standardDiscountPercentage": "Standard Discount Percentage",
+            "isStatementSent": "Is Statement Sent",
+            "isOnCreditHold": "Is On Credit Hold",
+            "paymentDays": "Payment Days",
+            "phoneNumber": "Phone Number",
+            "faxNumber": "Fax Number",
+            "deliveryRun": "Delivery Run",
+            "runPosition": "Run Position",
+            "websiteURL": "Website URL",
+            "deliveryAddressLine1": "Delivery Address Line 1",
+            "deliveryAddressLine2": "Delivery Address Line 2",
+            "deliveryPostalCode": "Delivery Postal Code",
+            "deliveryLocation": "Delivery Location",
+            "postalAddressLine1": "Postal Address Line 1",
+            "postalAddressLine2": "Postal Address Line 2",
+            "postalPostalCode": "Postal Postal Code",
+            "validFrom": "Valid From",
+            "validTo": "Valid To",
+            "primaryContactPerson": "Primary Contact Person",
+            "alternateContactPerson": "Alternate Contact Person",
+            "customerCategory": "Customer Category",
+            "buyingGroup": "Buying Group",
+            "billToCustomer": "Bill To Customer",
+            "deliveryCity": "Delivery City",
+            "postalCity": "Postal City",
+            "deliveryMethod": "Delivery Method"
+        }
+    }
+}

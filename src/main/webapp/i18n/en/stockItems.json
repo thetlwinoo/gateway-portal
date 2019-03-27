@@ -1,0 +1,44 @@
+{
+    "portalApp": {
+        "stockItems": {
+            "home": {
+                "title": "Stock Items",
+                "createLabel": "Create a new Stock Items",
+                "createOrEditLabel": "Create or edit a Stock Items"
+            },
+            "created": "A new Stock Items is created with identifier {{ param }}",
+            "updated": "A Stock Items is updated with identifier {{ param }}",
+            "deleted": "A Stock Items is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Stock Items {{ id }}?"
+            },
+            "detail": {
+                "title": "Stock Items"
+            },
+            "stockItemName": "Stock Item Name",
+            "brand": "Brand",
+            "size": "Size",
+            "leadTimeDays": "Lead Time Days",
+            "quantityPerOuter": "Quantity Per Outer",
+            "isChillerStock": "Is Chiller Stock",
+            "barcode": "Barcode",
+            "taxRate": "Tax Rate",
+            "unitPrice": "Unit Price",
+            "recommendedRetailPrice": "Recommended Retail Price",
+            "typicalWeightPerUnit": "Typical Weight Per Unit",
+            "marketingComments": "Marketing Comments",
+            "internalComments": "Internal Comments",
+            "photo": "Photo",
+            "customFields": "Custom Fields",
+            "tags": "Tags",
+            "searchDetails": "Search Details",
+            "validFrom": "Valid From",
+            "validTo": "Valid To",
+            "product": "Product",
+            "unitPackage": "Unit Package",
+            "outerPackage": "Outer Package",
+            "supplier": "Supplier",
+            "color": "Color"
+        }
+    }
+}

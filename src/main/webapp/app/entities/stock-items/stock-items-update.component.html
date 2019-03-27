@@ -1,0 +1,238 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-stock-items-heading" jhiTranslate="portalApp.stockItems.home.createOrEditLabel">Create or edit a Stock Items</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!stockItems.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="stockItems.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.stockItemName" for="field_stockItemName">Stock Item Name</label>
+                    <input type="text" class="form-control" name="stockItemName" id="field_stockItemName"
+                        [(ngModel)]="stockItems.stockItemName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.brand" for="field_brand">Brand</label>
+                    <input type="text" class="form-control" name="brand" id="field_brand"
+                        [(ngModel)]="stockItems.brand" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.size" for="field_size">Size</label>
+                    <input type="text" class="form-control" name="size" id="field_size"
+                        [(ngModel)]="stockItems.size" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.leadTimeDays" for="field_leadTimeDays">Lead Time Days</label>
+                    <input type="number" class="form-control" name="leadTimeDays" id="field_leadTimeDays"
+                        [(ngModel)]="stockItems.leadTimeDays" required/>
+                    <div [hidden]="!(editForm.controls.leadTimeDays?.dirty && editForm.controls.leadTimeDays?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.leadTimeDays?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.leadTimeDays?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.quantityPerOuter" for="field_quantityPerOuter">Quantity Per Outer</label>
+                    <input type="number" class="form-control" name="quantityPerOuter" id="field_quantityPerOuter"
+                        [(ngModel)]="stockItems.quantityPerOuter" required/>
+                    <div [hidden]="!(editForm.controls.quantityPerOuter?.dirty && editForm.controls.quantityPerOuter?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.quantityPerOuter?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.quantityPerOuter?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.isChillerStock" for="field_isChillerStock">Is Chiller Stock</label>
+                    <input type="checkbox" class="form-control" name="isChillerStock" id="field_isChillerStock"
+                        [(ngModel)]="stockItems.isChillerStock" />
+                    <div [hidden]="!(editForm.controls.isChillerStock?.dirty && editForm.controls.isChillerStock?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.isChillerStock?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.barcode" for="field_barcode">Barcode</label>
+                    <input type="text" class="form-control" name="barcode" id="field_barcode"
+                        [(ngModel)]="stockItems.barcode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.taxRate" for="field_taxRate">Tax Rate</label>
+                    <input type="number" class="form-control" name="taxRate" id="field_taxRate"
+                        [(ngModel)]="stockItems.taxRate" required/>
+                    <div [hidden]="!(editForm.controls.taxRate?.dirty && editForm.controls.taxRate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.taxRate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.taxRate?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.unitPrice" for="field_unitPrice">Unit Price</label>
+                    <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                        [(ngModel)]="stockItems.unitPrice" required/>
+                    <div [hidden]="!(editForm.controls.unitPrice?.dirty && editForm.controls.unitPrice?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.unitPrice?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.unitPrice?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.recommendedRetailPrice" for="field_recommendedRetailPrice">Recommended Retail Price</label>
+                    <input type="number" class="form-control" name="recommendedRetailPrice" id="field_recommendedRetailPrice"
+                        [(ngModel)]="stockItems.recommendedRetailPrice" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.typicalWeightPerUnit" for="field_typicalWeightPerUnit">Typical Weight Per Unit</label>
+                    <input type="number" class="form-control" name="typicalWeightPerUnit" id="field_typicalWeightPerUnit"
+                        [(ngModel)]="stockItems.typicalWeightPerUnit" required/>
+                    <div [hidden]="!(editForm.controls.typicalWeightPerUnit?.dirty && editForm.controls.typicalWeightPerUnit?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.typicalWeightPerUnit?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.typicalWeightPerUnit?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.marketingComments" for="field_marketingComments">Marketing Comments</label>
+                    <input type="text" class="form-control" name="marketingComments" id="field_marketingComments"
+                        [(ngModel)]="stockItems.marketingComments" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.internalComments" for="field_internalComments">Internal Comments</label>
+                    <input type="text" class="form-control" name="internalComments" id="field_internalComments"
+                        [(ngModel)]="stockItems.internalComments" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.photo" for="field_photo">Photo</label>
+                    <input type="text" class="form-control" name="photo" id="field_photo"
+                        [(ngModel)]="stockItems.photo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.customFields" for="field_customFields">Custom Fields</label>
+                    <input type="text" class="form-control" name="customFields" id="field_customFields"
+                        [(ngModel)]="stockItems.customFields" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.tags" for="field_tags">Tags</label>
+                    <input type="text" class="form-control" name="tags" id="field_tags"
+                        [(ngModel)]="stockItems.tags" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.searchDetails" for="field_searchDetails">Search Details</label>
+                    <input type="text" class="form-control" name="searchDetails" id="field_searchDetails"
+                        [(ngModel)]="stockItems.searchDetails" required/>
+                    <div [hidden]="!(editForm.controls.searchDetails?.dirty && editForm.controls.searchDetails?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.searchDetails?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.validFrom" for="field_validFrom">Valid From</label>
+                    <div class="input-group">
+                        <input id="field_validFrom" type="text" class="form-control" name="validFrom" ngbDatepicker  #validFromDp="ngbDatepicker" [(ngModel)]="stockItems.validFrom"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="validFromDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.validFrom?.dirty && editForm.controls.validFrom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.validFrom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.validTo" for="field_validTo">Valid To</label>
+                    <div class="input-group">
+                        <input id="field_validTo" type="text" class="form-control" name="validTo" ngbDatepicker  #validToDp="ngbDatepicker" [(ngModel)]="stockItems.validTo"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="validToDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.validTo?.dirty && editForm.controls.validTo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.validTo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" [(ngModel)]="stockItems.productId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productsOption.id" *ngFor="let productsOption of products; trackBy: trackProductsById">{{productsOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.unitPackage" for="field_unitPackage">Unit Package</label>
+                    <select class="form-control" id="field_unitPackage" name="unitPackage" [(ngModel)]="stockItems.unitPackageId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="packageTypesOption.id" *ngFor="let packageTypesOption of packagetypes; trackBy: trackPackageTypesById">{{packageTypesOption.packageTypeName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.outerPackage" for="field_outerPackage">Outer Package</label>
+                    <select class="form-control" id="field_outerPackage" name="outerPackage" [(ngModel)]="stockItems.outerPackageId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="packageTypesOption.id" *ngFor="let packageTypesOption of packagetypes; trackBy: trackPackageTypesById">{{packageTypesOption.packageTypeName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.supplier" for="field_supplier">Supplier</label>
+                    <select class="form-control" id="field_supplier" name="supplier" [(ngModel)]="stockItems.supplierId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="suppliersOption.id" *ngFor="let suppliersOption of suppliers; trackBy: trackSuppliersById">{{suppliersOption.supplierName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.stockItems.color" for="field_color">Color</label>
+                    <select class="form-control" id="field_color" name="color" [(ngModel)]="stockItems.colorId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="colorsOption.id" *ngFor="let colorsOption of colors; trackBy: trackColorsById">{{colorsOption.colorName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

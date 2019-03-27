@@ -15,9 +15,21 @@ import { PortalCoreModule } from 'app/core';
 import { PortalAppRoutingModule } from './app-routing.module';
 import { PortalHomeModule } from './home/home.module';
 import { PortalEntityModule } from './entities/entity.module';
+import { PortalProductModule } from './products/products.module';
 import * as moment from 'moment';
+import { PortalprimengModule } from './primeng/primeng.module';
+// import { ComponentsModule } from './layouts/components/components.module';
+import { BreadcrumbModule } from 'primeng/components/breadcrumb/breadcrumb';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import {
+    JhiMainComponent,
+    NavbarComponent,
+    FooterComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    ErrorComponent,
+    BreadcrumbService
+} from './layouts';
 
 @NgModule({
     imports: [
@@ -33,12 +45,17 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         PortalSharedModule.forRoot(),
         PortalCoreModule,
         PortalHomeModule,
+        PortalprimengModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         PortalEntityModule,
-        PortalAppRoutingModule
+        PortalProductModule,
+        PortalAppRoutingModule,
+        // ComponentsModule
+        BreadcrumbModule
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
     providers: [
+        BreadcrumbService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthExpiredInterceptor,

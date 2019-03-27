@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orders">
+            <h2><span jhiTranslate="portalApp.orders.detail.title">Orders</span> {{orders.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.orders.orderDate">Order Date</span></dt>
+                <dd>
+                    <span>{{orders.orderDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.expectedDeliveryDate">Expected Delivery Date</span></dt>
+                <dd>
+                    <span>{{orders.expectedDeliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.customerPurchaseOrderNumber">Customer Purchase Order Number</span></dt>
+                <dd>
+                    <span>{{orders.customerPurchaseOrderNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.isUndersupplyBackordered">Is Undersupply Backordered</span></dt>
+                <dd>
+                    <span>{{orders.isUndersupplyBackordered}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.comments">Comments</span></dt>
+                <dd>
+                    <span>{{orders.comments}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.deliveryInstructions">Delivery Instructions</span></dt>
+                <dd>
+                    <span>{{orders.deliveryInstructions}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.internalComments">Internal Comments</span></dt>
+                <dd>
+                    <span>{{orders.internalComments}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.pickingCompletedWhen">Picking Completed When</span></dt>
+                <dd>
+                    <span>{{orders.pickingCompletedWhen}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.pickedByPerson">Picked By Person</span></dt>
+                <dd>
+                    <div *ngIf="orders.pickedByPersonId">
+                        <a [routerLink]="['/people', orders.pickedByPersonId, 'view']">{{orders.pickedByPersonFullName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.contactPerson">Contact Person</span></dt>
+                <dd>
+                    <div *ngIf="orders.contactPersonId">
+                        <a [routerLink]="['/people', orders.contactPersonId, 'view']">{{orders.contactPersonFullName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.salespersonPerson">Salesperson Person</span></dt>
+                <dd>
+                    <div *ngIf="orders.salespersonPersonId">
+                        <a [routerLink]="['/people', orders.salespersonPersonId, 'view']">{{orders.salespersonPersonFullName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="orders.customerId">
+                        <a [routerLink]="['/customers', orders.customerId, 'view']">{{orders.customerCustomerName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.orders.backorderOrder">Backorder Order</span></dt>
+                <dd>
+                    <div *ngIf="orders.backorderOrderId">
+                        <a [routerLink]="['/orders', orders.backorderOrderId, 'view']">{{orders.backorderOrderId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/orders', orders.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

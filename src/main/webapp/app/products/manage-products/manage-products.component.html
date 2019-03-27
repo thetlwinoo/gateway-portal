@@ -1,0 +1,118 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="portalApp.products.home.title">Products</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-products"
+                [routerLink]="['/manage-products/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span jhiTranslate="portalApp.products.home.createLabel">
+            Create new Products
+            </span>
+        </button>
+        <button id="jh-batch-upload" class="btn btn-primary float-right jh-create-entity create-products"
+                [routerLink]="['/manage-products/batch']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span>
+            Batch Upload
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="products">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span jhiTranslate="global.field.id">ID</span></th>
+                <th><span jhiTranslate="portalApp.products.productName">Product Name</span></th>
+                <th><span jhiTranslate="portalApp.products.makeFlag">Make Flag</span></th>
+                <th><span jhiTranslate="portalApp.products.finishedGoodsFlag">Finished Goods Flag</span></th>
+                <th><span jhiTranslate="portalApp.products.color">Color</span></th>
+                <th><span jhiTranslate="portalApp.products.safetyStockLevel">Safety Stock Level</span></th>
+                <th><span jhiTranslate="portalApp.products.reorderPoint">Reorder Point</span></th>
+                <th><span jhiTranslate="portalApp.products.standardCost">Standard Cost</span></th>
+                <th><span jhiTranslate="portalApp.products.listPrice">List Price</span></th>
+                <th><span jhiTranslate="portalApp.products.size">Size</span></th>
+                <th><span jhiTranslate="portalApp.products.weight">Weight</span></th>
+                <th><span jhiTranslate="portalApp.products.daysToManufacture">Days To Manufacture</span></th>
+                <th><span jhiTranslate="portalApp.products.productLine">Product Line</span></th>
+                <th><span jhiTranslate="portalApp.products.classType">Class Type</span></th>
+                <th><span jhiTranslate="portalApp.products.style">Style</span></th>
+                <th><span jhiTranslate="portalApp.products.sellStartDate">Sell Start Date</span></th>
+                <th><span jhiTranslate="portalApp.products.sellEndDate">Sell End Date</span></th>
+                <th><span jhiTranslate="portalApp.products.discontinuedDate">Discontinued Date</span></th>
+                <th><span jhiTranslate="portalApp.products.productSubCategory">Product Sub Category</span></th>
+                <th><span jhiTranslate="portalApp.products.sizeUnitMeasureCode">Size Unit Measure Code</span></th>
+                <th><span jhiTranslate="portalApp.products.weightUnitMeasureCode">Weight Unit Measure Code</span></th>
+                <th><span jhiTranslate="portalApp.products.productModel">Product Model</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let products of products ;trackBy: trackId">
+                <td><a [routerLink]="['/products', products.id, 'view' ]">{{products.id}}</a></td>
+                <td>{{products.productName}}</td>
+                <td>{{products.makeFlag}}</td>
+                <td>{{products.finishedGoodsFlag}}</td>
+                <td>{{products.color}}</td>
+                <td>{{products.safetyStockLevel}}</td>
+                <td>{{products.reorderPoint}}</td>
+                <td>{{products.standardCost}}</td>
+                <td>{{products.listPrice}}</td>
+                <td>{{products.size}}</td>
+                <td>{{products.weight}}</td>
+                <td>{{products.daysToManufacture}}</td>
+                <td>{{products.productLine}}</td>
+                <td>{{products.classType}}</td>
+                <td>{{products.style}}</td>
+                <td>{{products.sellStartDate | date:'mediumDate'}}</td>
+                <td>{{products.sellEndDate | date:'mediumDate'}}</td>
+                <td>{{products.discontinuedDate | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="products.productSubCategoryId">
+                        <a [routerLink]="['../product-sub-category', products.productSubCategoryId , 'view' ]">{{products.productSubCategoryId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="products.sizeUnitMeasureCodeId">
+                        <a [routerLink]="['../unit-measure', products.sizeUnitMeasureCodeId , 'view' ]">{{products.sizeUnitMeasureCodeUnitMeasureCode}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="products.weightUnitMeasureCodeId">
+                        <a [routerLink]="['../unit-measure', products.weightUnitMeasureCodeId , 'view' ]">{{products.weightUnitMeasureCodeUnitMeasureCode}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="products.productModelId">
+                        <a [routerLink]="['../product-model', products.productModelId , 'view' ]">{{products.productModelProductModelName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/products', products.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/products', products.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'products', { outlets: { popup: products.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

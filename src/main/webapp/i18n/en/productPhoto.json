@@ -1,0 +1,26 @@
+{
+    "portalApp": {
+        "productPhoto": {
+            "home": {
+                "title": "Product Photos",
+                "createLabel": "Create a new Product Photo",
+                "createOrEditLabel": "Create or edit a Product Photo"
+            },
+            "created": "A new Product Photo is created with identifier {{ param }}",
+            "updated": "A Product Photo is updated with identifier {{ param }}",
+            "deleted": "A Product Photo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Product Photo {{ id }}?"
+            },
+            "detail": {
+                "title": "Product Photo"
+            },
+            "thumbNailPhoto": "Thumb Nail Photo",
+            "thumbNailPhotoFileName": "Thumb Nail Photo File Name",
+            "largePhoto": "Large Photo",
+            "largePhotoFileName": "Large Photo File Name",
+            "priority": "Priority",
+            "product": "Product"
+        }
+    }
+}

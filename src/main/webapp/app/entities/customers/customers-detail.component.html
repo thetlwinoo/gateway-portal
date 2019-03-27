@@ -1,0 +1,155 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customers">
+            <h2><span jhiTranslate="portalApp.customers.detail.title">Customers</span> {{customers.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.customers.customerName">Customer Name</span></dt>
+                <dd>
+                    <span>{{customers.customerName}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.creditLimit">Credit Limit</span></dt>
+                <dd>
+                    <span>{{customers.creditLimit}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.accountOpenedDate">Account Opened Date</span></dt>
+                <dd>
+                    <span>{{customers.accountOpenedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.standardDiscountPercentage">Standard Discount Percentage</span></dt>
+                <dd>
+                    <span>{{customers.standardDiscountPercentage}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.isStatementSent">Is Statement Sent</span></dt>
+                <dd>
+                    <span>{{customers.isStatementSent}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.isOnCreditHold">Is On Credit Hold</span></dt>
+                <dd>
+                    <span>{{customers.isOnCreditHold}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.paymentDays">Payment Days</span></dt>
+                <dd>
+                    <span>{{customers.paymentDays}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{customers.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.faxNumber">Fax Number</span></dt>
+                <dd>
+                    <span>{{customers.faxNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.deliveryRun">Delivery Run</span></dt>
+                <dd>
+                    <span>{{customers.deliveryRun}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.runPosition">Run Position</span></dt>
+                <dd>
+                    <span>{{customers.runPosition}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.websiteURL">Website URL</span></dt>
+                <dd>
+                    <span>{{customers.websiteURL}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.deliveryAddressLine1">Delivery Address Line 1</span></dt>
+                <dd>
+                    <span>{{customers.deliveryAddressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.deliveryAddressLine2">Delivery Address Line 2</span></dt>
+                <dd>
+                    <span>{{customers.deliveryAddressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.deliveryPostalCode">Delivery Postal Code</span></dt>
+                <dd>
+                    <span>{{customers.deliveryPostalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.deliveryLocation">Delivery Location</span></dt>
+                <dd>
+                    <span>{{customers.deliveryLocation}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.postalAddressLine1">Postal Address Line 1</span></dt>
+                <dd>
+                    <span>{{customers.postalAddressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.postalAddressLine2">Postal Address Line 2</span></dt>
+                <dd>
+                    <span>{{customers.postalAddressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.postalPostalCode">Postal Postal Code</span></dt>
+                <dd>
+                    <span>{{customers.postalPostalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.validFrom">Valid From</span></dt>
+                <dd>
+                    <span>{{customers.validFrom}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{customers.validTo}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.primaryContactPerson">Primary Contact Person</span></dt>
+                <dd>
+                    <div *ngIf="customers.primaryContactPersonId">
+                        <a [routerLink]="['/people', customers.primaryContactPersonId, 'view']">{{customers.primaryContactPersonFullName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.alternateContactPerson">Alternate Contact Person</span></dt>
+                <dd>
+                    <div *ngIf="customers.alternateContactPersonId">
+                        <a [routerLink]="['/people', customers.alternateContactPersonId, 'view']">{{customers.alternateContactPersonFullName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.customerCategory">Customer Category</span></dt>
+                <dd>
+                    <div *ngIf="customers.customerCategoryId">
+                        <a [routerLink]="['/customer-categories', customers.customerCategoryId, 'view']">{{customers.customerCategoryCustomerCategoryName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.buyingGroup">Buying Group</span></dt>
+                <dd>
+                    <div *ngIf="customers.buyingGroupId">
+                        <a [routerLink]="['/buying-groups', customers.buyingGroupId, 'view']">{{customers.buyingGroupBuyingGroupName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.billToCustomer">Bill To Customer</span></dt>
+                <dd>
+                    <div *ngIf="customers.billToCustomerId">
+                        <a [routerLink]="['/customers', customers.billToCustomerId, 'view']">{{customers.billToCustomerCustomerName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.deliveryCity">Delivery City</span></dt>
+                <dd>
+                    <div *ngIf="customers.deliveryCityId">
+                        <a [routerLink]="['/cities', customers.deliveryCityId, 'view']">{{customers.deliveryCityCityName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.postalCity">Postal City</span></dt>
+                <dd>
+                    <div *ngIf="customers.postalCityId">
+                        <a [routerLink]="['/cities', customers.postalCityId, 'view']">{{customers.postalCityCityName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.customers.deliveryMethod">Delivery Method</span></dt>
+                <dd>
+                    <div *ngIf="customers.deliveryMethodId">
+                        <a [routerLink]="['/delivery-methods', customers.deliveryMethodId, 'view']">{{customers.deliveryMethodDeliveryMethodName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customers', customers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

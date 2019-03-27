@@ -1,0 +1,143 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="suppliers">
+            <h2><span jhiTranslate="portalApp.suppliers.detail.title">Suppliers</span> {{suppliers.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.suppliers.supplierName">Supplier Name</span></dt>
+                <dd>
+                    <span>{{suppliers.supplierName}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.supplierReference">Supplier Reference</span></dt>
+                <dd>
+                    <span>{{suppliers.supplierReference}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.bankAccountName">Bank Account Name</span></dt>
+                <dd>
+                    <span>{{suppliers.bankAccountName}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.bankAccountBranch">Bank Account Branch</span></dt>
+                <dd>
+                    <span>{{suppliers.bankAccountBranch}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.bankAccountCode">Bank Account Code</span></dt>
+                <dd>
+                    <span>{{suppliers.bankAccountCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.bankAccountNumber">Bank Account Number</span></dt>
+                <dd>
+                    <span>{{suppliers.bankAccountNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.bankInternationalCode">Bank International Code</span></dt>
+                <dd>
+                    <span>{{suppliers.bankInternationalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.paymentDays">Payment Days</span></dt>
+                <dd>
+                    <span>{{suppliers.paymentDays}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.internalComments">Internal Comments</span></dt>
+                <dd>
+                    <span>{{suppliers.internalComments}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{suppliers.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.faxNumber">Fax Number</span></dt>
+                <dd>
+                    <span>{{suppliers.faxNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.websiteURL">Website URL</span></dt>
+                <dd>
+                    <span>{{suppliers.websiteURL}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.deliveryAddressLine1">Delivery Address Line 1</span></dt>
+                <dd>
+                    <span>{{suppliers.deliveryAddressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.deliveryAddressLine2">Delivery Address Line 2</span></dt>
+                <dd>
+                    <span>{{suppliers.deliveryAddressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.deliveryPostalCode">Delivery Postal Code</span></dt>
+                <dd>
+                    <span>{{suppliers.deliveryPostalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.deliveryLocation">Delivery Location</span></dt>
+                <dd>
+                    <span>{{suppliers.deliveryLocation}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.postalAddressLine1">Postal Address Line 1</span></dt>
+                <dd>
+                    <span>{{suppliers.postalAddressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.postalAddressLine2">Postal Address Line 2</span></dt>
+                <dd>
+                    <span>{{suppliers.postalAddressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.postalPostalCode">Postal Postal Code</span></dt>
+                <dd>
+                    <span>{{suppliers.postalPostalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.validFrom">Valid From</span></dt>
+                <dd>
+                    <span>{{suppliers.validFrom}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{suppliers.validTo}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.primaryContactPerson">Primary Contact Person</span></dt>
+                <dd>
+                    <div *ngIf="suppliers.primaryContactPersonId">
+                        <a [routerLink]="['/people', suppliers.primaryContactPersonId, 'view']">{{suppliers.primaryContactPersonFullName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.alternateContactPerson">Alternate Contact Person</span></dt>
+                <dd>
+                    <div *ngIf="suppliers.alternateContactPersonId">
+                        <a [routerLink]="['/people', suppliers.alternateContactPersonId, 'view']">{{suppliers.alternateContactPersonFullName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.supplierCategory">Supplier Category</span></dt>
+                <dd>
+                    <div *ngIf="suppliers.supplierCategoryId">
+                        <a [routerLink]="['/supplier-categories', suppliers.supplierCategoryId, 'view']">{{suppliers.supplierCategorySupplierCategoryName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.deliveryMethod">Delivery Method</span></dt>
+                <dd>
+                    <div *ngIf="suppliers.deliveryMethodId">
+                        <a [routerLink]="['/delivery-methods', suppliers.deliveryMethodId, 'view']">{{suppliers.deliveryMethodDeliveryMethodName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.deliveryCity">Delivery City</span></dt>
+                <dd>
+                    <div *ngIf="suppliers.deliveryCityId">
+                        <a [routerLink]="['/cities', suppliers.deliveryCityId, 'view']">{{suppliers.deliveryCityCityName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.suppliers.postalCity">Postal City</span></dt>
+                <dd>
+                    <div *ngIf="suppliers.postalCityId">
+                        <a [routerLink]="['/cities', suppliers.postalCityId, 'view']">{{suppliers.postalCityCityName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/suppliers', suppliers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

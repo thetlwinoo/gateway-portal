@@ -1,0 +1,23 @@
+{
+    "portalApp": {
+        "colors": {
+            "home": {
+                "title": "Colors",
+                "createLabel": "Create a new Colors",
+                "createOrEditLabel": "Create or edit a Colors"
+            },
+            "created": "A new Colors is created with identifier {{ param }}",
+            "updated": "A Colors is updated with identifier {{ param }}",
+            "deleted": "A Colors is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Colors {{ id }}?"
+            },
+            "detail": {
+                "title": "Colors"
+            },
+            "colorName": "Color Name",
+            "validFrom": "Valid From",
+            "validTo": "Valid To"
+        }
+    }
+}

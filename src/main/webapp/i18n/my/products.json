@@ -1,0 +1,42 @@
+{
+    "portalApp": {
+        "products": {
+            "home": {
+                "title": "Products",
+                "createLabel": "Products အသစ်ထည့်မည်",
+                "createOrEditLabel": "Products အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း"
+            },
+            "created": "{{ param }} အိုင်ဒီဖြင့် Products အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+            "updated": "{{ param }} အိုင်ဒီဖြင့် Products တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+            "deleted": "{{ param }} အိုင်ဒီဖြင့် Products တစ်ခုအား ဖျက်ပြီးပါပြီ။",
+            "delete": {
+                "question": "Products {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+            },
+            "detail": {
+                "title": "Products"
+            },
+            "productName": "Product Name",
+            "makeFlag": "Make Flag",
+            "finishedGoodsFlag": "Finished Goods Flag",
+            "color": "Color",
+            "safetyStockLevel": "Safety Stock Level",
+            "reorderPoint": "Reorder Point",
+            "standardCost": "Standard Cost",
+            "listPrice": "List Price",
+            "size": "Size",
+            "weight": "Weight",
+            "daysToManufacture": "Days To Manufacture",
+            "productLine": "Product Line",
+            "classType": "Class Type",
+            "style": "Style",
+            "sellStartDate": "Sell Start Date",
+            "sellEndDate": "Sell End Date",
+            "discontinuedDate": "Discontinued Date",
+            "productSubCategory": "Product Sub Category",
+            "sizeUnitMeasureCode": "Size Unit Measure Code",
+            "weightUnitMeasureCode": "Weight Unit Measure Code",
+            "productModel": "Product Model",
+            "stockItem": "Stock Item"
+        }
+    }
+}

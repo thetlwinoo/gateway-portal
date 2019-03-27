@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="systemParameters">
+            <h2><span jhiTranslate="portalApp.systemParameters.detail.title">System Parameters</span> {{systemParameters.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.systemParameters.deliveryAddressLine1">Delivery Address Line 1</span></dt>
+                <dd>
+                    <span>{{systemParameters.deliveryAddressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.deliveryAddressLine2">Delivery Address Line 2</span></dt>
+                <dd>
+                    <span>{{systemParameters.deliveryAddressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.deliveryPostalCode">Delivery Postal Code</span></dt>
+                <dd>
+                    <span>{{systemParameters.deliveryPostalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.deliveryLocation">Delivery Location</span></dt>
+                <dd>
+                    <span>{{systemParameters.deliveryLocation}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.postalAddressLine1">Postal Address Line 1</span></dt>
+                <dd>
+                    <span>{{systemParameters.postalAddressLine1}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.postalAddressLine2">Postal Address Line 2</span></dt>
+                <dd>
+                    <span>{{systemParameters.postalAddressLine2}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.postalPostalCode">Postal Postal Code</span></dt>
+                <dd>
+                    <span>{{systemParameters.postalPostalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.applicationSettings">Application Settings</span></dt>
+                <dd>
+                    <span>{{systemParameters.applicationSettings}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.deliveryCity">Delivery City</span></dt>
+                <dd>
+                    <div *ngIf="systemParameters.deliveryCityId">
+                        <a [routerLink]="['/cities', systemParameters.deliveryCityId, 'view']">{{systemParameters.deliveryCityCityName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.systemParameters.postalCity">Postal City</span></dt>
+                <dd>
+                    <div *ngIf="systemParameters.postalCityId">
+                        <a [routerLink]="['/cities', systemParameters.postalCityId, 'view']">{{systemParameters.postalCityCityName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/system-parameters', systemParameters.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

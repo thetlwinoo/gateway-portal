@@ -4,6 +4,7 @@
 </div>
 <div class="container-fluid">
     <div class="card jh-card">
+        <p-breadcrumb *ngIf="breadcrumb && breadcrumb.length > 0" [model]="crumbs$ | async" [home]="home"></p-breadcrumb>
         <router-outlet></router-outlet>
         <router-outlet name="popup"></router-outlet>
     </div>

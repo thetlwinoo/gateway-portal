@@ -1,0 +1,142 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="portalApp.customers.home.title">Customers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customers" [routerLink]="['/customers/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="portalApp.customers.home.createLabel">
+            Create new Customers
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="customers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="portalApp.customers.customerName">Customer Name</span></th>
+            <th><span jhiTranslate="portalApp.customers.creditLimit">Credit Limit</span></th>
+            <th><span jhiTranslate="portalApp.customers.accountOpenedDate">Account Opened Date</span></th>
+            <th><span jhiTranslate="portalApp.customers.standardDiscountPercentage">Standard Discount Percentage</span></th>
+            <th><span jhiTranslate="portalApp.customers.isStatementSent">Is Statement Sent</span></th>
+            <th><span jhiTranslate="portalApp.customers.isOnCreditHold">Is On Credit Hold</span></th>
+            <th><span jhiTranslate="portalApp.customers.paymentDays">Payment Days</span></th>
+            <th><span jhiTranslate="portalApp.customers.phoneNumber">Phone Number</span></th>
+            <th><span jhiTranslate="portalApp.customers.faxNumber">Fax Number</span></th>
+            <th><span jhiTranslate="portalApp.customers.deliveryRun">Delivery Run</span></th>
+            <th><span jhiTranslate="portalApp.customers.runPosition">Run Position</span></th>
+            <th><span jhiTranslate="portalApp.customers.websiteURL">Website URL</span></th>
+            <th><span jhiTranslate="portalApp.customers.deliveryAddressLine1">Delivery Address Line 1</span></th>
+            <th><span jhiTranslate="portalApp.customers.deliveryAddressLine2">Delivery Address Line 2</span></th>
+            <th><span jhiTranslate="portalApp.customers.deliveryPostalCode">Delivery Postal Code</span></th>
+            <th><span jhiTranslate="portalApp.customers.deliveryLocation">Delivery Location</span></th>
+            <th><span jhiTranslate="portalApp.customers.postalAddressLine1">Postal Address Line 1</span></th>
+            <th><span jhiTranslate="portalApp.customers.postalAddressLine2">Postal Address Line 2</span></th>
+            <th><span jhiTranslate="portalApp.customers.postalPostalCode">Postal Postal Code</span></th>
+            <th><span jhiTranslate="portalApp.customers.validFrom">Valid From</span></th>
+            <th><span jhiTranslate="portalApp.customers.validTo">Valid To</span></th>
+            <th><span jhiTranslate="portalApp.customers.primaryContactPerson">Primary Contact Person</span></th>
+            <th><span jhiTranslate="portalApp.customers.alternateContactPerson">Alternate Contact Person</span></th>
+            <th><span jhiTranslate="portalApp.customers.customerCategory">Customer Category</span></th>
+            <th><span jhiTranslate="portalApp.customers.buyingGroup">Buying Group</span></th>
+            <th><span jhiTranslate="portalApp.customers.billToCustomer">Bill To Customer</span></th>
+            <th><span jhiTranslate="portalApp.customers.deliveryCity">Delivery City</span></th>
+            <th><span jhiTranslate="portalApp.customers.postalCity">Postal City</span></th>
+            <th><span jhiTranslate="portalApp.customers.deliveryMethod">Delivery Method</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customers of customers ;trackBy: trackId">
+                <td><a [routerLink]="['/customers', customers.id, 'view' ]">{{customers.id}}</a></td>
+                <td>{{customers.customerName}}</td>
+                <td>{{customers.creditLimit}}</td>
+                <td>{{customers.accountOpenedDate | date:'mediumDate'}}</td>
+                <td>{{customers.standardDiscountPercentage}}</td>
+                <td>{{customers.isStatementSent}}</td>
+                <td>{{customers.isOnCreditHold}}</td>
+                <td>{{customers.paymentDays}}</td>
+                <td>{{customers.phoneNumber}}</td>
+                <td>{{customers.faxNumber}}</td>
+                <td>{{customers.deliveryRun}}</td>
+                <td>{{customers.runPosition}}</td>
+                <td>{{customers.websiteURL}}</td>
+                <td>{{customers.deliveryAddressLine1}}</td>
+                <td>{{customers.deliveryAddressLine2}}</td>
+                <td>{{customers.deliveryPostalCode}}</td>
+                <td>{{customers.deliveryLocation}}</td>
+                <td>{{customers.postalAddressLine1}}</td>
+                <td>{{customers.postalAddressLine2}}</td>
+                <td>{{customers.postalPostalCode}}</td>
+                <td>{{customers.validFrom | date:'mediumDate'}}</td>
+                <td>{{customers.validTo | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="customers.primaryContactPersonId">
+                        <a [routerLink]="['../people', customers.primaryContactPersonId , 'view' ]" >{{customers.primaryContactPersonFullName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customers.alternateContactPersonId">
+                        <a [routerLink]="['../people', customers.alternateContactPersonId , 'view' ]" >{{customers.alternateContactPersonFullName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customers.customerCategoryId">
+                        <a [routerLink]="['../customer-categories', customers.customerCategoryId , 'view' ]" >{{customers.customerCategoryCustomerCategoryName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customers.buyingGroupId">
+                        <a [routerLink]="['../buying-groups', customers.buyingGroupId , 'view' ]" >{{customers.buyingGroupBuyingGroupName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customers.billToCustomerId">
+                        <a [routerLink]="['../customers', customers.billToCustomerId , 'view' ]" >{{customers.billToCustomerCustomerName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customers.deliveryCityId">
+                        <a [routerLink]="['../cities', customers.deliveryCityId , 'view' ]" >{{customers.deliveryCityCityName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customers.postalCityId">
+                        <a [routerLink]="['../cities', customers.postalCityId , 'view' ]" >{{customers.postalCityCityName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="customers.deliveryMethodId">
+                        <a [routerLink]="['../delivery-methods', customers.deliveryMethodId , 'view' ]" >{{customers.deliveryMethodDeliveryMethodName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/customers', customers.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/customers', customers.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'customers', { outlets: { popup: customers.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-product-photo-heading" jhiTranslate="portalApp.productPhoto.home.createOrEditLabel">Create or edit a Product Photo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!productPhoto.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="productPhoto.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productPhoto.thumbNailPhoto" for="field_thumbNailPhoto">Thumb Nail Photo</label>
+                    <input type="text" class="form-control" name="thumbNailPhoto" id="field_thumbNailPhoto"
+                        [(ngModel)]="productPhoto.thumbNailPhoto" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productPhoto.thumbNailPhotoFileName" for="field_thumbNailPhotoFileName">Thumb Nail Photo File Name</label>
+                    <input type="text" class="form-control" name="thumbNailPhotoFileName" id="field_thumbNailPhotoFileName"
+                        [(ngModel)]="productPhoto.thumbNailPhotoFileName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productPhoto.largePhoto" for="field_largePhoto">Large Photo</label>
+                    <input type="text" class="form-control" name="largePhoto" id="field_largePhoto"
+                        [(ngModel)]="productPhoto.largePhoto" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productPhoto.largePhotoFileName" for="field_largePhotoFileName">Large Photo File Name</label>
+                    <input type="text" class="form-control" name="largePhotoFileName" id="field_largePhotoFileName"
+                        [(ngModel)]="productPhoto.largePhotoFileName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productPhoto.priority" for="field_priority">Priority</label>
+                    <input type="number" class="form-control" name="priority" id="field_priority"
+                        [(ngModel)]="productPhoto.priority" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productPhoto.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" [(ngModel)]="productPhoto.productId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productsOption.id" *ngFor="let productsOption of products; trackBy: trackProductsById">{{productsOption.productName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

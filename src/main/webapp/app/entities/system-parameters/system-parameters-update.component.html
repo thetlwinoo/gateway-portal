@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-system-parameters-heading" jhiTranslate="portalApp.systemParameters.home.createOrEditLabel">Create or edit a System Parameters</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!systemParameters.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="systemParameters.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.deliveryAddressLine1" for="field_deliveryAddressLine1">Delivery Address Line 1</label>
+                    <input type="text" class="form-control" name="deliveryAddressLine1" id="field_deliveryAddressLine1"
+                        [(ngModel)]="systemParameters.deliveryAddressLine1" required/>
+                    <div [hidden]="!(editForm.controls.deliveryAddressLine1?.dirty && editForm.controls.deliveryAddressLine1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.deliveryAddressLine1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.deliveryAddressLine2" for="field_deliveryAddressLine2">Delivery Address Line 2</label>
+                    <input type="text" class="form-control" name="deliveryAddressLine2" id="field_deliveryAddressLine2"
+                        [(ngModel)]="systemParameters.deliveryAddressLine2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.deliveryPostalCode" for="field_deliveryPostalCode">Delivery Postal Code</label>
+                    <input type="text" class="form-control" name="deliveryPostalCode" id="field_deliveryPostalCode"
+                        [(ngModel)]="systemParameters.deliveryPostalCode" required/>
+                    <div [hidden]="!(editForm.controls.deliveryPostalCode?.dirty && editForm.controls.deliveryPostalCode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.deliveryPostalCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.deliveryLocation" for="field_deliveryLocation">Delivery Location</label>
+                    <input type="text" class="form-control" name="deliveryLocation" id="field_deliveryLocation"
+                        [(ngModel)]="systemParameters.deliveryLocation" required/>
+                    <div [hidden]="!(editForm.controls.deliveryLocation?.dirty && editForm.controls.deliveryLocation?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.deliveryLocation?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.postalAddressLine1" for="field_postalAddressLine1">Postal Address Line 1</label>
+                    <input type="text" class="form-control" name="postalAddressLine1" id="field_postalAddressLine1"
+                        [(ngModel)]="systemParameters.postalAddressLine1" required/>
+                    <div [hidden]="!(editForm.controls.postalAddressLine1?.dirty && editForm.controls.postalAddressLine1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.postalAddressLine1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.postalAddressLine2" for="field_postalAddressLine2">Postal Address Line 2</label>
+                    <input type="text" class="form-control" name="postalAddressLine2" id="field_postalAddressLine2"
+                        [(ngModel)]="systemParameters.postalAddressLine2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.postalPostalCode" for="field_postalPostalCode">Postal Postal Code</label>
+                    <input type="text" class="form-control" name="postalPostalCode" id="field_postalPostalCode"
+                        [(ngModel)]="systemParameters.postalPostalCode" required/>
+                    <div [hidden]="!(editForm.controls.postalPostalCode?.dirty && editForm.controls.postalPostalCode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.postalPostalCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.applicationSettings" for="field_applicationSettings">Application Settings</label>
+                    <input type="text" class="form-control" name="applicationSettings" id="field_applicationSettings"
+                        [(ngModel)]="systemParameters.applicationSettings" required/>
+                    <div [hidden]="!(editForm.controls.applicationSettings?.dirty && editForm.controls.applicationSettings?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.applicationSettings?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.deliveryCity" for="field_deliveryCity">Delivery City</label>
+                    <select class="form-control" id="field_deliveryCity" name="deliveryCity" [(ngModel)]="systemParameters.deliveryCityId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="citiesOption.id" *ngFor="let citiesOption of cities; trackBy: trackCitiesById">{{citiesOption.cityName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.systemParameters.postalCity" for="field_postalCity">Postal City</label>
+                    <select class="form-control" id="field_postalCity" name="postalCity" [(ngModel)]="systemParameters.postalCityId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="citiesOption.id" *ngFor="let citiesOption of cities; trackBy: trackCitiesById">{{citiesOption.cityName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+{
+    "portalApp": {
+        "products": {
+            "home": {
+                "title": "Products",
+                "createLabel": "Create a new Products",
+                "createOrEditLabel": "Create or edit a Products"
+            },
+            "created": "A new Products is created with identifier {{ param }}",
+            "updated": "A Products is updated with identifier {{ param }}",
+            "deleted": "A Products is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Products {{ id }}?"
+            },
+            "detail": {
+                "title": "Products"
+            },
+            "productName": "Product Name",
+            "makeFlag": "Make Flag",
+            "finishedGoodsFlag": "Finished Goods Flag",
+            "color": "Color",
+            "safetyStockLevel": "Safety Stock Level",
+            "reorderPoint": "Reorder Point",
+            "standardCost": "Standard Cost",
+            "listPrice": "List Price",
+            "size": "Size",
+            "weight": "Weight",
+            "daysToManufacture": "Days To Manufacture",
+            "productLine": "Product Line",
+            "classType": "Class Type",
+            "style": "Style",
+            "sellStartDate": "Sell Start Date",
+            "sellEndDate": "Sell End Date",
+            "discontinuedDate": "Discontinued Date",
+            "productSubCategory": "Product Sub Category",
+            "sizeUnitMeasureCode": "Size Unit Measure Code",
+            "weightUnitMeasureCode": "Weight Unit Measure Code",
+            "productModel": "Product Model",
+            "stockItem": "Stock Item"
+        }
+    }
+}

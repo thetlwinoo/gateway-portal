@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="productProductPhoto">
+            <h2><span jhiTranslate="portalApp.productProductPhoto.detail.title">Product Product Photo</span> {{productProductPhoto.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.productProductPhoto.firstPriority">First Priority</span></dt>
+                <dd>
+                    <span>{{productProductPhoto.firstPriority}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.productProductPhoto.secondPriority">Second Priority</span></dt>
+                <dd>
+                    <span>{{productProductPhoto.secondPriority}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.productProductPhoto.thirdPriority">Third Priority</span></dt>
+                <dd>
+                    <span>{{productProductPhoto.thirdPriority}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.productProductPhoto.fourthPriority">Fourth Priority</span></dt>
+                <dd>
+                    <span>{{productProductPhoto.fourthPriority}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.productProductPhoto.fixthPriority">Fixth Priority</span></dt>
+                <dd>
+                    <span>{{productProductPhoto.fixthPriority}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.productProductPhoto.sixthPriority">Sixth Priority</span></dt>
+                <dd>
+                    <span>{{productProductPhoto.sixthPriority}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.productProductPhoto.productPhoto">Product Photo</span></dt>
+                <dd>
+                    <div *ngIf="productProductPhoto.productPhotoId">
+                        <a [routerLink]="['/product-photo', productProductPhoto.productPhotoId, 'view']">{{productProductPhoto.productPhotoId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.productProductPhoto.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="productProductPhoto.productId">
+                        <a [routerLink]="['/products', productProductPhoto.productId, 'view']">{{productProductPhoto.productProductName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-product-photo', productProductPhoto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,298 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-customers-heading" jhiTranslate="portalApp.customers.home.createOrEditLabel">Create or edit a Customers</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!customers.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="customers.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.customerName" for="field_customerName">Customer Name</label>
+                    <input type="text" class="form-control" name="customerName" id="field_customerName"
+                        [(ngModel)]="customers.customerName" required/>
+                    <div [hidden]="!(editForm.controls.customerName?.dirty && editForm.controls.customerName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.customerName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.creditLimit" for="field_creditLimit">Credit Limit</label>
+                    <input type="number" class="form-control" name="creditLimit" id="field_creditLimit"
+                        [(ngModel)]="customers.creditLimit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.accountOpenedDate" for="field_accountOpenedDate">Account Opened Date</label>
+                    <div class="input-group">
+                        <input id="field_accountOpenedDate" type="text" class="form-control" name="accountOpenedDate" ngbDatepicker  #accountOpenedDateDp="ngbDatepicker" [(ngModel)]="customers.accountOpenedDate"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="accountOpenedDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.accountOpenedDate?.dirty && editForm.controls.accountOpenedDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.accountOpenedDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.standardDiscountPercentage" for="field_standardDiscountPercentage">Standard Discount Percentage</label>
+                    <input type="number" class="form-control" name="standardDiscountPercentage" id="field_standardDiscountPercentage"
+                        [(ngModel)]="customers.standardDiscountPercentage" required/>
+                    <div [hidden]="!(editForm.controls.standardDiscountPercentage?.dirty && editForm.controls.standardDiscountPercentage?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.standardDiscountPercentage?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.standardDiscountPercentage?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.isStatementSent" for="field_isStatementSent">Is Statement Sent</label>
+                    <input type="checkbox" class="form-control" name="isStatementSent" id="field_isStatementSent"
+                        [(ngModel)]="customers.isStatementSent" />
+                    <div [hidden]="!(editForm.controls.isStatementSent?.dirty && editForm.controls.isStatementSent?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.isStatementSent?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.isOnCreditHold" for="field_isOnCreditHold">Is On Credit Hold</label>
+                    <input type="checkbox" class="form-control" name="isOnCreditHold" id="field_isOnCreditHold"
+                        [(ngModel)]="customers.isOnCreditHold" />
+                    <div [hidden]="!(editForm.controls.isOnCreditHold?.dirty && editForm.controls.isOnCreditHold?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.isOnCreditHold?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.paymentDays" for="field_paymentDays">Payment Days</label>
+                    <input type="number" class="form-control" name="paymentDays" id="field_paymentDays"
+                        [(ngModel)]="customers.paymentDays" required/>
+                    <div [hidden]="!(editForm.controls.paymentDays?.dirty && editForm.controls.paymentDays?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.paymentDays?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.paymentDays?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="customers.phoneNumber" required/>
+                    <div [hidden]="!(editForm.controls.phoneNumber?.dirty && editForm.controls.phoneNumber?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phoneNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.faxNumber" for="field_faxNumber">Fax Number</label>
+                    <input type="text" class="form-control" name="faxNumber" id="field_faxNumber"
+                        [(ngModel)]="customers.faxNumber" required/>
+                    <div [hidden]="!(editForm.controls.faxNumber?.dirty && editForm.controls.faxNumber?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.faxNumber?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.deliveryRun" for="field_deliveryRun">Delivery Run</label>
+                    <input type="text" class="form-control" name="deliveryRun" id="field_deliveryRun"
+                        [(ngModel)]="customers.deliveryRun" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.runPosition" for="field_runPosition">Run Position</label>
+                    <input type="text" class="form-control" name="runPosition" id="field_runPosition"
+                        [(ngModel)]="customers.runPosition" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.websiteURL" for="field_websiteURL">Website URL</label>
+                    <input type="text" class="form-control" name="websiteURL" id="field_websiteURL"
+                        [(ngModel)]="customers.websiteURL" required/>
+                    <div [hidden]="!(editForm.controls.websiteURL?.dirty && editForm.controls.websiteURL?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.websiteURL?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.deliveryAddressLine1" for="field_deliveryAddressLine1">Delivery Address Line 1</label>
+                    <input type="text" class="form-control" name="deliveryAddressLine1" id="field_deliveryAddressLine1"
+                        [(ngModel)]="customers.deliveryAddressLine1" required/>
+                    <div [hidden]="!(editForm.controls.deliveryAddressLine1?.dirty && editForm.controls.deliveryAddressLine1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.deliveryAddressLine1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.deliveryAddressLine2" for="field_deliveryAddressLine2">Delivery Address Line 2</label>
+                    <input type="text" class="form-control" name="deliveryAddressLine2" id="field_deliveryAddressLine2"
+                        [(ngModel)]="customers.deliveryAddressLine2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.deliveryPostalCode" for="field_deliveryPostalCode">Delivery Postal Code</label>
+                    <input type="text" class="form-control" name="deliveryPostalCode" id="field_deliveryPostalCode"
+                        [(ngModel)]="customers.deliveryPostalCode" required/>
+                    <div [hidden]="!(editForm.controls.deliveryPostalCode?.dirty && editForm.controls.deliveryPostalCode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.deliveryPostalCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.deliveryLocation" for="field_deliveryLocation">Delivery Location</label>
+                    <input type="text" class="form-control" name="deliveryLocation" id="field_deliveryLocation"
+                        [(ngModel)]="customers.deliveryLocation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.postalAddressLine1" for="field_postalAddressLine1">Postal Address Line 1</label>
+                    <input type="text" class="form-control" name="postalAddressLine1" id="field_postalAddressLine1"
+                        [(ngModel)]="customers.postalAddressLine1" required/>
+                    <div [hidden]="!(editForm.controls.postalAddressLine1?.dirty && editForm.controls.postalAddressLine1?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.postalAddressLine1?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.postalAddressLine2" for="field_postalAddressLine2">Postal Address Line 2</label>
+                    <input type="text" class="form-control" name="postalAddressLine2" id="field_postalAddressLine2"
+                        [(ngModel)]="customers.postalAddressLine2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.postalPostalCode" for="field_postalPostalCode">Postal Postal Code</label>
+                    <input type="text" class="form-control" name="postalPostalCode" id="field_postalPostalCode"
+                        [(ngModel)]="customers.postalPostalCode" required/>
+                    <div [hidden]="!(editForm.controls.postalPostalCode?.dirty && editForm.controls.postalPostalCode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.postalPostalCode?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.validFrom" for="field_validFrom">Valid From</label>
+                    <div class="input-group">
+                        <input id="field_validFrom" type="text" class="form-control" name="validFrom" ngbDatepicker  #validFromDp="ngbDatepicker" [(ngModel)]="customers.validFrom"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="validFromDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.validFrom?.dirty && editForm.controls.validFrom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.validFrom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.validTo" for="field_validTo">Valid To</label>
+                    <div class="input-group">
+                        <input id="field_validTo" type="text" class="form-control" name="validTo" ngbDatepicker  #validToDp="ngbDatepicker" [(ngModel)]="customers.validTo"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="validToDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.validTo?.dirty && editForm.controls.validTo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.validTo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.primaryContactPerson" for="field_primaryContactPerson">Primary Contact Person</label>
+                    <select class="form-control" id="field_primaryContactPerson" name="primaryContactPerson" [(ngModel)]="customers.primaryContactPersonId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="peopleOption.id" *ngFor="let peopleOption of people; trackBy: trackPeopleById">{{peopleOption.fullName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.alternateContactPerson" for="field_alternateContactPerson">Alternate Contact Person</label>
+                    <select class="form-control" id="field_alternateContactPerson" name="alternateContactPerson" [(ngModel)]="customers.alternateContactPersonId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="peopleOption.id" *ngFor="let peopleOption of people; trackBy: trackPeopleById">{{peopleOption.fullName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.customerCategory" for="field_customerCategory">Customer Category</label>
+                    <select class="form-control" id="field_customerCategory" name="customerCategory" [(ngModel)]="customers.customerCategoryId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerCategoriesOption.id" *ngFor="let customerCategoriesOption of customercategories; trackBy: trackCustomerCategoriesById">{{customerCategoriesOption.customerCategoryName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.buyingGroup" for="field_buyingGroup">Buying Group</label>
+                    <select class="form-control" id="field_buyingGroup" name="buyingGroup" [(ngModel)]="customers.buyingGroupId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="buyingGroupsOption.id" *ngFor="let buyingGroupsOption of buyinggroups; trackBy: trackBuyingGroupsById">{{buyingGroupsOption.buyingGroupName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.billToCustomer" for="field_billToCustomer">Bill To Customer</label>
+                    <select class="form-control" id="field_billToCustomer" name="billToCustomer" [(ngModel)]="customers.billToCustomerId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customersOption.id" *ngFor="let customersOption of customers; trackBy: trackCustomersById">{{customersOption.customerName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.deliveryCity" for="field_deliveryCity">Delivery City</label>
+                    <select class="form-control" id="field_deliveryCity" name="deliveryCity" [(ngModel)]="customers.deliveryCityId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="citiesOption.id" *ngFor="let citiesOption of cities; trackBy: trackCitiesById">{{citiesOption.cityName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.postalCity" for="field_postalCity">Postal City</label>
+                    <select class="form-control" id="field_postalCity" name="postalCity" [(ngModel)]="customers.postalCityId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="citiesOption.id" *ngFor="let citiesOption of cities; trackBy: trackCitiesById">{{citiesOption.cityName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.customers.deliveryMethod" for="field_deliveryMethod">Delivery Method</label>
+                    <select class="form-control" id="field_deliveryMethod" name="deliveryMethod" [(ngModel)]="customers.deliveryMethodId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryMethodsOption.id" *ngFor="let deliveryMethodsOption of deliverymethods; trackBy: trackDeliveryMethodsById">{{deliveryMethodsOption.deliveryMethodName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

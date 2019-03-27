@@ -1,0 +1,49 @@
+{
+    "portalApp": {
+        "customers": {
+            "home": {
+                "title": "Customers",
+                "createLabel": "Create a new Customers",
+                "createOrEditLabel": "Create or edit a Customers"
+            },
+            "created": "A new Customers is created with identifier {{ param }}",
+            "updated": "A Customers is updated with identifier {{ param }}",
+            "deleted": "A Customers is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Customers {{ id }}?"
+            },
+            "detail": {
+                "title": "Customers"
+            },
+            "customerName": "Customer Name",
+            "creditLimit": "Credit Limit",
+            "accountOpenedDate": "Account Opened Date",
+            "standardDiscountPercentage": "Standard Discount Percentage",
+            "isStatementSent": "Is Statement Sent",
+            "isOnCreditHold": "Is On Credit Hold",
+            "paymentDays": "Payment Days",
+            "phoneNumber": "Phone Number",
+            "faxNumber": "Fax Number",
+            "deliveryRun": "Delivery Run",
+            "runPosition": "Run Position",
+            "websiteURL": "Website URL",
+            "deliveryAddressLine1": "Delivery Address Line 1",
+            "deliveryAddressLine2": "Delivery Address Line 2",
+            "deliveryPostalCode": "Delivery Postal Code",
+            "deliveryLocation": "Delivery Location",
+            "postalAddressLine1": "Postal Address Line 1",
+            "postalAddressLine2": "Postal Address Line 2",
+            "postalPostalCode": "Postal Postal Code",
+            "validFrom": "Valid From",
+            "validTo": "Valid To",
+            "primaryContactPerson": "Primary Contact Person",
+            "alternateContactPerson": "Alternate Contact Person",
+            "customerCategory": "Customer Category",
+            "buyingGroup": "Buying Group",
+            "billToCustomer": "Bill To Customer",
+            "deliveryCity": "Delivery City",
+            "postalCity": "Postal City",
+            "deliveryMethod": "Delivery Method"
+        }
+    }
+}

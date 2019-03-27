@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="specialDeals">
+            <h2><span jhiTranslate="portalApp.specialDeals.detail.title">Special Deals</span> {{specialDeals.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.specialDeals.dealDescription">Deal Description</span></dt>
+                <dd>
+                    <span>{{specialDeals.dealDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{specialDeals.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{specialDeals.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.discountAmount">Discount Amount</span></dt>
+                <dd>
+                    <span>{{specialDeals.discountAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.discountPercentage">Discount Percentage</span></dt>
+                <dd>
+                    <span>{{specialDeals.discountPercentage}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{specialDeals.unitPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.buyingGroup">Buying Group</span></dt>
+                <dd>
+                    <div *ngIf="specialDeals.buyingGroupId">
+                        <a [routerLink]="['/buying-groups', specialDeals.buyingGroupId, 'view']">{{specialDeals.buyingGroupBuyingGroupName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.customerCategory">Customer Category</span></dt>
+                <dd>
+                    <div *ngIf="specialDeals.customerCategoryId">
+                        <a [routerLink]="['/customer-categories', specialDeals.customerCategoryId, 'view']">{{specialDeals.customerCategoryCustomerCategoryName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="specialDeals.customerId">
+                        <a [routerLink]="['/customers', specialDeals.customerId, 'view']">{{specialDeals.customerCustomerName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.stockGroup">Stock Group</span></dt>
+                <dd>
+                    <div *ngIf="specialDeals.stockGroupId">
+                        <a [routerLink]="['/stock-groups', specialDeals.stockGroupId, 'view']">{{specialDeals.stockGroupStockGroupName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.specialDeals.stockItem">Stock Item</span></dt>
+                <dd>
+                    <div *ngIf="specialDeals.stockItemId">
+                        <a [routerLink]="['/stock-items', specialDeals.stockItemId, 'view']">{{specialDeals.stockItemStockItemName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/special-deals', specialDeals.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

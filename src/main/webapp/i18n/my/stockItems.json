@@ -1,0 +1,44 @@
+{
+    "portalApp": {
+        "stockItems": {
+            "home": {
+                "title": "Stock Items",
+                "createLabel": "Stock Items အသစ်ထည့်မည်",
+                "createOrEditLabel": "Stock Items အသစ်ထည့်ခြင်း (သို့) ပြုပြင်ခြင်း"
+            },
+            "created": "{{ param }} အိုင်ဒီဖြင့် Stock Items အသစ်တစ်ခုအား ထည့်ပြီးပါပြီ။",
+            "updated": "{{ param }} အိုင်ဒီဖြင့် Stock Items တစ်ခုအား ပြုပြင်ပြီးပါပြီ။",
+            "deleted": "{{ param }} အိုင်ဒီဖြင့် Stock Items တစ်ခုအား ဖျက်ပြီးပါပြီ။",
+            "delete": {
+                "question": "Stock Items {{ id }} အား ဖျက်ပါမည်။ သေချာပါသလား?"
+            },
+            "detail": {
+                "title": "Stock Items"
+            },
+            "stockItemName": "Stock Item Name",
+            "brand": "Brand",
+            "size": "Size",
+            "leadTimeDays": "Lead Time Days",
+            "quantityPerOuter": "Quantity Per Outer",
+            "isChillerStock": "Is Chiller Stock",
+            "barcode": "Barcode",
+            "taxRate": "Tax Rate",
+            "unitPrice": "Unit Price",
+            "recommendedRetailPrice": "Recommended Retail Price",
+            "typicalWeightPerUnit": "Typical Weight Per Unit",
+            "marketingComments": "Marketing Comments",
+            "internalComments": "Internal Comments",
+            "photo": "Photo",
+            "customFields": "Custom Fields",
+            "tags": "Tags",
+            "searchDetails": "Search Details",
+            "validFrom": "Valid From",
+            "validTo": "Valid To",
+            "product": "Product",
+            "unitPackage": "Unit Package",
+            "outerPackage": "Outer Package",
+            "supplier": "Supplier",
+            "color": "Color"
+        }
+    }
+}

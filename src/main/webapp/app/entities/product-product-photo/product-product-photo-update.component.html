@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-product-product-photo-heading" jhiTranslate="portalApp.productProductPhoto.home.createOrEditLabel">Create or edit a Product Product Photo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!productProductPhoto.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="productProductPhoto.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.firstPriority" for="field_firstPriority">First Priority</label>
+                    <input type="checkbox" class="form-control" name="firstPriority" id="field_firstPriority"
+                        [(ngModel)]="productProductPhoto.firstPriority" />
+                    <div [hidden]="!(editForm.controls.firstPriority?.dirty && editForm.controls.firstPriority?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.firstPriority?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.secondPriority" for="field_secondPriority">Second Priority</label>
+                    <input type="checkbox" class="form-control" name="secondPriority" id="field_secondPriority"
+                        [(ngModel)]="productProductPhoto.secondPriority" />
+                    <div [hidden]="!(editForm.controls.secondPriority?.dirty && editForm.controls.secondPriority?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.secondPriority?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.thirdPriority" for="field_thirdPriority">Third Priority</label>
+                    <input type="checkbox" class="form-control" name="thirdPriority" id="field_thirdPriority"
+                        [(ngModel)]="productProductPhoto.thirdPriority" />
+                    <div [hidden]="!(editForm.controls.thirdPriority?.dirty && editForm.controls.thirdPriority?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.thirdPriority?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.fourthPriority" for="field_fourthPriority">Fourth Priority</label>
+                    <input type="checkbox" class="form-control" name="fourthPriority" id="field_fourthPriority"
+                        [(ngModel)]="productProductPhoto.fourthPriority" />
+                    <div [hidden]="!(editForm.controls.fourthPriority?.dirty && editForm.controls.fourthPriority?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fourthPriority?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.fixthPriority" for="field_fixthPriority">Fixth Priority</label>
+                    <input type="checkbox" class="form-control" name="fixthPriority" id="field_fixthPriority"
+                        [(ngModel)]="productProductPhoto.fixthPriority" />
+                    <div [hidden]="!(editForm.controls.fixthPriority?.dirty && editForm.controls.fixthPriority?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.fixthPriority?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.sixthPriority" for="field_sixthPriority">Sixth Priority</label>
+                    <input type="checkbox" class="form-control" name="sixthPriority" id="field_sixthPriority"
+                        [(ngModel)]="productProductPhoto.sixthPriority" />
+                    <div [hidden]="!(editForm.controls.sixthPriority?.dirty && editForm.controls.sixthPriority?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.sixthPriority?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.productPhoto" for="field_productPhoto">Product Photo</label>
+                    <select class="form-control" id="field_productPhoto" name="productPhoto" [(ngModel)]="productProductPhoto.productPhotoId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productPhotoOption.id" *ngFor="let productPhotoOption of productphotos; trackBy: trackProductPhotoById">{{productPhotoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="portalApp.productProductPhoto.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" [(ngModel)]="productProductPhoto.productId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productsOption.id" *ngFor="let productsOption of products; trackBy: trackProductsById">{{productsOption.productName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

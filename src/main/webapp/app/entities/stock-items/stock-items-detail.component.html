@@ -1,0 +1,129 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stockItems">
+            <h2><span jhiTranslate="portalApp.stockItems.detail.title">Stock Items</span> {{stockItems.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.stockItems.stockItemName">Stock Item Name</span></dt>
+                <dd>
+                    <span>{{stockItems.stockItemName}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.brand">Brand</span></dt>
+                <dd>
+                    <span>{{stockItems.brand}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.size">Size</span></dt>
+                <dd>
+                    <span>{{stockItems.size}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.leadTimeDays">Lead Time Days</span></dt>
+                <dd>
+                    <span>{{stockItems.leadTimeDays}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.quantityPerOuter">Quantity Per Outer</span></dt>
+                <dd>
+                    <span>{{stockItems.quantityPerOuter}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.isChillerStock">Is Chiller Stock</span></dt>
+                <dd>
+                    <span>{{stockItems.isChillerStock}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.barcode">Barcode</span></dt>
+                <dd>
+                    <span>{{stockItems.barcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.taxRate">Tax Rate</span></dt>
+                <dd>
+                    <span>{{stockItems.taxRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{stockItems.unitPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.recommendedRetailPrice">Recommended Retail Price</span></dt>
+                <dd>
+                    <span>{{stockItems.recommendedRetailPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.typicalWeightPerUnit">Typical Weight Per Unit</span></dt>
+                <dd>
+                    <span>{{stockItems.typicalWeightPerUnit}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.marketingComments">Marketing Comments</span></dt>
+                <dd>
+                    <span>{{stockItems.marketingComments}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.internalComments">Internal Comments</span></dt>
+                <dd>
+                    <span>{{stockItems.internalComments}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.photo">Photo</span></dt>
+                <dd>
+                    <span>{{stockItems.photo}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.customFields">Custom Fields</span></dt>
+                <dd>
+                    <span>{{stockItems.customFields}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.tags">Tags</span></dt>
+                <dd>
+                    <span>{{stockItems.tags}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.searchDetails">Search Details</span></dt>
+                <dd>
+                    <span>{{stockItems.searchDetails}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.validFrom">Valid From</span></dt>
+                <dd>
+                    <span>{{stockItems.validFrom}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{stockItems.validTo}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="stockItems.productId">
+                        <a [routerLink]="['/products', stockItems.productId, 'view']">{{stockItems.productId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.unitPackage">Unit Package</span></dt>
+                <dd>
+                    <div *ngIf="stockItems.unitPackageId">
+                        <a [routerLink]="['/package-types', stockItems.unitPackageId, 'view']">{{stockItems.unitPackagePackageTypeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.outerPackage">Outer Package</span></dt>
+                <dd>
+                    <div *ngIf="stockItems.outerPackageId">
+                        <a [routerLink]="['/package-types', stockItems.outerPackageId, 'view']">{{stockItems.outerPackagePackageTypeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.supplier">Supplier</span></dt>
+                <dd>
+                    <div *ngIf="stockItems.supplierId">
+                        <a [routerLink]="['/suppliers', stockItems.supplierId, 'view']">{{stockItems.supplierSupplierName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="portalApp.stockItems.color">Color</span></dt>
+                <dd>
+                    <div *ngIf="stockItems.colorId">
+                        <a [routerLink]="['/colors', stockItems.colorId, 'view']">{{stockItems.colorColorName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock-items', stockItems.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

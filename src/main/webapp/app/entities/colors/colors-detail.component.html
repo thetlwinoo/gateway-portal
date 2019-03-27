@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="colors">
+            <h2><span jhiTranslate="portalApp.colors.detail.title">Colors</span> {{colors.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="portalApp.colors.colorName">Color Name</span></dt>
+                <dd>
+                    <span>{{colors.colorName}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.colors.validFrom">Valid From</span></dt>
+                <dd>
+                    <span>{{colors.validFrom}}</span>
+                </dd>
+                <dt><span jhiTranslate="portalApp.colors.validTo">Valid To</span></dt>
+                <dd>
+                    <span>{{colors.validTo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/colors', colors.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
