@@ -5,24 +5,6 @@
     <jhi-alert></jhi-alert>
     <br/>
     <p-tabMenu [model]="mangeImageTabs" [activeItem]="mangeImageTabs[0]"></p-tabMenu>
-    <!--<div class="table-responsive" *ngIf="products">-->
-    <!--<table class="table table-striped">-->
-    <!--<thead>-->
-    <!--<tr>-->
-    <!--<th><span jhiTranslate="portalApp.products.productName">Product</span></th>-->
-    <!--<th>All Images</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr *ngFor="let product of products ;trackBy: trackId">-->
-    <!--<td>{{product.productName}}</td>-->
-    <!--<td class="text-right">-->
-    <!--<image-uploader [product]="product" [noOfSelector] = "8"></image-uploader>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-    <!--</table>-->
-    <!--</div>-->
     <div *ngIf="products">
         <p-progressBar [value]="uploadProgress" [style]="{'height': '6px','margin':'5px 0px 5px 0px'}"></p-progressBar>
         <p-table #tt [columns]="cols" [value]="products" [paginator]="true" [rows]="10" [responsive]="true">
@@ -46,12 +28,12 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
-                <tr [pSelectableRow]="rowData">
+                <tr>
                     <td *ngFor="let col of columns" class="ui-resizable-column">
                         {{rowData[col.field]}}
                     </td>
                     <td class="text-right">
-                        <image-uploader [product]="product" [noOfSelector]="8"></image-uploader>
+                        <image-uploader [product]="rowData" [noOfSelector]="8"></image-uploader>
                     </td>
                 </tr>
             </ng-template>

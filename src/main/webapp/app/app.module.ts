@@ -30,7 +30,6 @@ import {
     ErrorComponent,
     BreadcrumbService
 } from './layouts';
-
 @NgModule({
     imports: [
         BrowserModule,

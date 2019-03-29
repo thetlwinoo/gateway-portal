@@ -7,3 +7,5 @@ export const VERSION = process.env.VERSION;
 export const DEBUG_INFO_ENABLED: boolean = false;
 export const SERVER_API_URL = process.env.SERVER_API_URL;
 export const BUILD_TIMESTAMP = process.env.BUILD_TIMESTAMP;
+export const CLOUDINARY_CLOUD_NAME = 'www-pixsurf-com';
+export const CLOUDINARY_UPLOAD_PRESET = 'iffbb1jh';

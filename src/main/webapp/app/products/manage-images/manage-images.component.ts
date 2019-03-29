@@ -20,7 +20,7 @@ export class ManageImagesComponent implements OnInit, OnDestroy {
     eventSubscriber: Subscription;
     mangeImageTabs: MenuItem[];
     activeManageTab: MenuItem;
-    uploadProgress: number = 0;
+    uploadProgress = 0;
     cols: any[];
 
     brands: any[];

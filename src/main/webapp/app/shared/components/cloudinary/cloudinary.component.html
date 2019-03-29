@@ -1,0 +1,31 @@
+<input hidden type="file" accept="image/*" id="fileupload" #fileInput ng2FileSelect [style.display]="'none'"
+       [uploader]="uploader"
+       (change)="fileInput.value=''"
+       multiple/>
+<div class="product-image">
+    <span>
+
+        <div class="image-upload-btn" *ngIf="!productPhoto;else preview" (click)="fileInput.click()">
+            <fa-icon icon="cannabis"
+                     class="next-icon next-icon-add next-icon-medium upload-btn-icon"></fa-icon>
+            <p class="upload-text">Select Images</p>
+        </div>
+        <ng-template #preview>
+            <div class="image-preview" (click)="op.toggle($event)">
+                <a class="image-link" href="javascript:;">
+                    <img src="{{productPhoto.largePhoto}}" draggable="false">
+                </a>
+                <div class="image-tools">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+            </div>
+        </ng-template>
+
+    </span>
+</div>
+<p-overlayPanel #op [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" [dismissable]="true" [appendTo]="'body'">
+    <img class="overlay-image" [src]="productPhoto?.largePhoto" *ngIf="productPhoto"/>
+</p-overlayPanel>
+<p-progressBar [value]="uploadProgress" [style]="{'height': '6px','margin':'5px 0px 0px 0px'}"></p-progressBar>

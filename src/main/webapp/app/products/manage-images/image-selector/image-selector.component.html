@@ -1,21 +1,7 @@
-<input type="file" accept="image/*" style="display: none;" #file>
-<div class="product-image" (click)="file.click()">
-    <span>
-        <div class="image-upload-btn">
-            <fa-icon icon="cannabis"
-                     class="next-icon next-icon-add next-icon-medium upload-btn-icon"></fa-icon>
-            <p class="upload-text">Select Images</p>
-        </div>
-        <!--<div class="image-preview">-->
-            <!--<a class="image-link" href="javascript:;">-->
-                <!--<img src="#" draggable="false">-->
-            <!--</a>-->
-            <!--<div class="image-tools">-->
-                <!--<i></i>-->
-                <!--<i></i>-->
-                <!--<i></i>-->
-            <!--</div>-->
-        <!--</div>-->
-
-    </span>
-</div>
+<cloudinary [product]="product" [productPhoto]="productPhoto" (uploadCompleted)="onUploadCompleted($event)"></cloudinary>
+<!--<div *ngFor="let item of productPhotos; let i = index">-->
+    <!--{{item.largePhotoFileName}} - {{item.priority}}-->
+<!--</div>-->
+<!--<div *ngIf="productPhoto">-->
+    <!--{{productPhoto.largePhotoFileName}}-->
+<!--</div>-->

@@ -15,6 +15,9 @@ import { WizardModule } from 'primeng-extensions/components/wizard/wizard.js';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TableModule } from 'primeng/table';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { jhiCloudinaryModule } from 'app/shared/components';
+import { jhiPipesModule } from 'app/shared/pipes/pipes.module';
+
 const ENTITY_STATES = [...manageImagesRoute];
 
 @NgModule({
@@ -28,6 +31,8 @@ const ENTITY_STATES = [...manageImagesRoute];
         TabMenuModule,
         TableModule,
         ProgressBarModule,
+        jhiCloudinaryModule,
+        jhiPipesModule,
         RouterModule.forChild(ENTITY_STATES)
     ],
     declarations: [ManageImagesComponent, ImageUploaderComponent, ImageSelectorComponent],
